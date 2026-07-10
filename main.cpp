@@ -10,6 +10,9 @@ void showMenu() {
     std::cout << "1. Переглянути всі вакансії\n";
     std::cout << "2. Пошук вакансій за зарплатою\n";
     std::cout << "3. Вихід\n";
+    std::cout << "4. [Роботодавець] Додати нову вакансію\n";
+    std::cout << "5. [Кандидат] Відгукнутися на вакансію\n";
+    std::cout << "6. [Роботодавець] Переглянути отримані резюме\n";
     std::cout << "Оберіть дію: ";
 }
 
@@ -69,6 +72,19 @@ int main() {
                 std::cout << "Вакансій із такою або більшою зарплатою не знайдено.\n";
             }
             std::cout << "\n";
+            break;
+        }
+            case 4:
+            addVacancyByEmployer(vacancies);
+            break;
+        case 5: {
+            static std::vector<Application> applications; // Вектор для збереження відгуків
+            applyForVacancy(applications);
+            break;
+        }
+        case 6: {
+            static std::vector<Application> applications; 
+            viewApplications(applications);
             break;
         }
         default:
