@@ -80,3 +80,27 @@ int main() {
 }
 // Виконано: Полівана Поліна
 
+void addVacancyByEmployer(std::vector<Vacancy>& vacancies) {
+    Vacancy newVacancy;
+    newVacancy.id = vacancies.size() + 1;
+
+    std::cin.ignore(); 
+    std::cout << "\n--- РЕЖИМ РОБОТОДАВЦЯ: СТВОРЕННЯ ВАКАНСІЇ ---\n";
+    std::cout << "Введіть назву посади: ";
+    std::getline(std::cin, newVacancy.title);
+
+    std::cout << "Введіть назву компанії: ";
+    std::getline(std::cin, newVacancy.companyName);
+
+    std::cout << "Введіть опис вакансії: ";
+    std::getline(std::cin, newVacancy.description);
+
+    std::cout << "Введіть заробітну плату (грн): ";
+    std::cin >> newVacancy.salary;
+
+    vacancies.push_back(newVacancy);
+    std::cout << "\n[Система] Вакансію успішно додано роботодавцем!\n\n";
+}
+
+// Додано: Камененко Анастасія
+
