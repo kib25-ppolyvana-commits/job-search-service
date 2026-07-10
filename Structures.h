@@ -7,7 +7,7 @@
 struct Vacancy {
     int id;
     std::string title;       
-    std::string company;     
+    std::string companyName;     
     std::string description; 
     double salary;           
 };
