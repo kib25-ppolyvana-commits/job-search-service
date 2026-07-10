@@ -15,7 +15,9 @@ void showMenu() {
     std::cout << "6. [Роботодавець] Переглянути отримані резюме\n";
     std::cout << "Оберіть дію: ";
 }
-
+void addVacancyByEmployer(std::vector<Vacancy>& vacancies);
+void applyForVacancy(std::vector<Application>& applications);
+void viewApplications(const std::vector<Application>& applications);
 int main() {
     SetConsoleCP(65001);
     SetConsoleOutputCP(65001);
@@ -28,6 +30,7 @@ int main() {
     vacancies.push_back({ 3, "Cybersecurity Analyst", "CyberGuard", "Моніторинг безпеки мереж, аналіз логів", 50000.0 });
 
     int choice = 0;
+    std::vector<Application> global_applications; 
     while (true) {
         showMenu();
         std::cin >> choice;
@@ -77,14 +80,12 @@ int main() {
             case 4:
             addVacancyByEmployer(vacancies);
             break;
-        case 5: {
-            static std::vector<Application> applications; // Вектор для збереження відгуків
-            applyForVacancy(applications);
+       case 5: {
+            applyForVacancy(global_applications);
             break;
         }
         case 6: {
-            static std::vector<Application> applications; 
-            viewApplications(applications);
+            viewApplications(global_applications);
             break;
         }
         default:
