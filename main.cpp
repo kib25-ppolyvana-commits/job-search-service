@@ -102,5 +102,5 @@ void addVacancyByEmployer(std::vector<Vacancy>& vacancies) {
     std::cout << "\n[Система] Вакансію успішно додано роботодавцем!\n\n";
 }
 
-// Додано: Камененко Анастасія
+// Додано: Камєнєнко Анастасія
 
