@@ -102,5 +102,42 @@ void addVacancyByEmployer(std::vector<Vacancy>& vacancies) {
     std::cout << "\n[Система] Вакансію успішно додано роботодавцем!\n\n";
 }
 
+void applyForVacancy(std::vector<Application>& applications) {
+    Application newApp;
+    
+    std::cout << "\n--- ВІДГУК НА ВАКАНСІЮ ---\n";
+    std::cout << "Введіть ID вакансії, яка вас зацікавила: ";
+    std::cin >> newApp.vacancyId;
+    
+    std::cin.ignore(); 
+    std::cout << "Введіть ваше повне ім'я: ";
+    std::getline(std::cin, newApp.candidateName);
+    
+    std::cout << "Введіть текст вашого резюме / супровідний лист: ";
+    std::getline(std::cin, newApp.resumeText);
+    
+    newApp.status = "На розгляді"; 
+    
+    applications.push_back(newApp);
+    std::cout << "\n[Система] Ваш відгук успішно надіслано роботодавцю!\n\n";
+}
+
+void viewApplications(const std::vector<Application>& applications) {
+    std::cout << "\n--- СПИСОК ОТРИМАНИХ ВІДГУКІВ (РЕЗЮМЕ) ---\n";
+    if (applications.empty()) {
+        std::cout << "Наразі немає жодного відгуку від кандидатів.\n\n";
+        return;
+    }
+    
+    for (size_t i = 0; i < applications.size(); ++i) {
+        std::cout << "Відгук №" << i + 1 << "\n";
+        std::cout << "ID вакансії: " << applications[i].vacancyId << "\n";
+        std::cout << "Кандидат: " << applications[i].candidateName << "\n";
+        std::cout << "Резюме / Лист: " << applications[i].resumeText << "\n";
+        std::cout << "Статус: " << applications[i].status << "\n";
+        std::cout << "-----------------------\n";
+    }
+    std::cout << "\n";
+}
 // Додано: Камєнєнко Анастасія
 
